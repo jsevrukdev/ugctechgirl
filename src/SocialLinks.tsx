@@ -55,6 +55,22 @@ function Icon({
           <path d="M14 9h3.5V5.5H14C11.5 5.5 9.5 7.5 9.5 10v2H7v3.5h2.5V22h3.5v-6.5H16L16.8 12h-3.3v-2c0-.6.4-1 1-1Z" />
         </svg>
       );
+    case "Upwork":
+      return (
+        <svg {...common} fill="none" stroke="currentColor" strokeWidth="1.8">
+          <circle cx="12" cy="12" r="8.2" />
+          <path
+            d="M9 15.4V10.4c0-1.5 1-2.5 2.4-2.5s2.4 1 2.4 2.5v5"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+    case "Fiverr":
+      return (
+        <svg {...common}>
+          <path d="M6.8 5.8h5.4v2.3H9.1v2.2h2.7v2.2H9.1V18H6.8V5.8Zm9.5 6.4a1.35 1.35 0 1 1 0-2.7 1.35 1.35 0 0 1 0 2.7Z" />
+        </svg>
+      );
     default:
       return null;
   }

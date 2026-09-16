@@ -20,6 +20,11 @@ export const profile = {
       label: "Facebook",
       href: "https://www.facebook.com/profile.php?id=61594052409591",
     },
+    {
+      label: "Upwork",
+      href: "https://www.upwork.com/freelancers/~0108fcd077fcd9dee6",
+    },
+    { label: "Fiverr", href: "https://www.fiverr.com/ugctech/" },
   ],
 };
 
