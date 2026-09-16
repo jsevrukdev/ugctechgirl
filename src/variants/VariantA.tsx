@@ -73,7 +73,7 @@ export function VariantA() {
           <div className="aspect-[9/16] overflow-hidden rounded-[2.2rem] border border-line bg-panel shadow-[0_40px_80px_rgba(0,0,0,0.18)]">
             <img
               src={profile.photo}
-              alt={profile.name}
+              alt="Julia of UGC Tech Girl, Europe-based UGC creator for tech and beauty brands"
               className="h-full w-full object-cover opacity-90"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-5 text-[#f4efe6]">
@@ -149,7 +149,7 @@ export function VariantA() {
                     <div className="relative aspect-[9/16] overflow-hidden rounded-2xl bg-panel">
                       <img
                         src={p.image}
-                        alt=""
+                        alt={p.title}
                         className="h-full w-full object-cover opacity-80"
                       />
                       <span className="absolute left-2 top-2 whitespace-nowrap rounded-full bg-black/55 px-2 py-0.5 text-[10px] uppercase tracking-wide text-[#c9b48a]">

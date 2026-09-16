@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jsevrukdev.github.io/ugctechgirl/sitemap.xml
