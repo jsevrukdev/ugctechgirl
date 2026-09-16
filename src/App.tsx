@@ -5,8 +5,7 @@ import { VariantA } from "./variants/VariantA";
 import { VariantB } from "./variants/VariantB";
 import { VariantC } from "./variants/VariantC";
 
-// Three variants of the UGC Tech Girl portfolio homepage, switchable via
-// ?variant=, on this throwaway prototype app (there is no existing site yet).
+// Live site is always layout A. Locally, ?variant= and the switcher still work.
 
 function readVariant(): VariantKey {
   const v = new URLSearchParams(window.location.search).get("variant");
@@ -26,6 +25,16 @@ export default function App() {
       window.removeEventListener("prototype-variant", sync);
     };
   }, []);
+
+  const live = (
+    <ThemeProvider>
+      <VariantA />
+    </ThemeProvider>
+  );
+
+  if (import.meta.env.PROD) {
+    return live;
+  }
 
   return (
     <ThemeProvider>

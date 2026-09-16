@@ -13,6 +13,7 @@ export const profile = {
   socials: [
     { label: "YouTube", href: "https://www.youtube.com/@ugctechgirl" },
     { label: "Instagram", href: "https://www.instagram.com/ugc.techgirl/" },
+    { label: "Pinterest", href: "https://www.pinterest.com/ugctechgirl/" },
     { label: "TikTok", href: "https://www.tiktok.com/@ugctechgirl" },
     { label: "X", href: "https://x.com/ugctechgirl" },
     {
