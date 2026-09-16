@@ -6,6 +6,7 @@ import {
   services,
   works,
 } from "../data";
+import { SocialLinks } from "../SocialLinks";
 import { ThemeToggle } from "../theme";
 
 const reelColors = [
@@ -214,6 +215,13 @@ export function VariantA() {
           Email {profile.email}
         </a>
       </section>
+
+      <footer className="border-t border-line px-6 py-10 md:px-10">
+        <p className="text-xs uppercase tracking-[0.28em] text-accent">
+          Find me
+        </p>
+        <SocialLinks className="mt-5" />
+      </footer>
     </div>
   );
 }
