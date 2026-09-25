@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   brandFaqs,
   community,
@@ -21,14 +21,34 @@ const reelColors = [
 ];
 
 function HeroClip() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const userToggled = useRef(false);
   const [muted, setMuted] = useState(true);
+
+  function toggleSound() {
+    const video = videoRef.current;
+    if (!video) return;
+    userToggled.current = true;
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    video.volume = 1;
+    void video.play();
+    setMuted(nextMuted);
+  }
 
   return (
     <div className="relative mx-auto w-[260px]">
-      <button
-        type="button"
-        onClick={() => setMuted((current) => !current)}
-        className="relative block w-full overflow-hidden rounded-[2.2rem] border border-line bg-panel text-left shadow-[0_40px_80px_rgba(0,0,0,0.18)]"
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={toggleSound}
+        onKeyDown={(event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleSound();
+          }
+        }}
+        className="relative block w-full cursor-pointer overflow-hidden rounded-[2.2rem] border border-line bg-panel text-left shadow-[0_40px_80px_rgba(0,0,0,0.18)]"
         aria-pressed={!muted}
         aria-label={
           muted
@@ -37,14 +57,26 @@ function HeroClip() {
         }
       >
         <video
+          ref={(element) => {
+            videoRef.current = element;
+            if (element && !userToggled.current) {
+              element.muted = true;
+              element.volume = 1;
+            }
+          }}
           className="aspect-[9/16] h-full w-full object-cover"
-          src={profile.heroVideo}
+          src={`${profile.heroVideo}?v=audio`}
           poster={profile.heroPoster}
           autoPlay
-          muted={muted}
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
+          onLoadedData={(event) => {
+            if (userToggled.current) return;
+            event.currentTarget.muted = true;
+            event.currentTarget.volume = 1;
+            void event.currentTarget.play();
+          }}
         />
         <span className="pointer-events-none absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-black/55 text-[#f4efe6]">
           {muted ? (
@@ -90,7 +122,7 @@ function HeroClip() {
             {profile.heroClipTitle}
           </p>
         </div>
-      </button>
+      </div>
     </div>
   );
 }
