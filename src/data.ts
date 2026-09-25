@@ -10,6 +10,9 @@ export const profile = {
   bio: "I’m Julia — a product manager who films UGC for tech, skincare, AI tools, SaaS, and finance. Brands hire me for native-feeling clips. Creators join me to learn the craft without the guesswork.",
   photo:
     "https://pbs.twimg.com/profile_images/2097766734698881024/KdJ6Y4eu.jpg",
+  heroVideo: "./hero.mp4",
+  heroPoster: "./hero-poster.jpg",
+  heroClipTitle: "First UGC clip",
   socials: [
     { label: "YouTube", href: "https://www.youtube.com/@ugctechgirl" },
     { label: "Instagram", href: "https://www.instagram.com/ugc.techgirl/" },

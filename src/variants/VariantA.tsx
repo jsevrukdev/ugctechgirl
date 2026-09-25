@@ -72,17 +72,23 @@ export function VariantA() {
 
         <div className="relative mx-auto w-[260px]">
           <div className="aspect-[9/16] overflow-hidden rounded-[2.2rem] border border-line bg-panel shadow-[0_40px_80px_rgba(0,0,0,0.18)]">
-            <img
-              src={profile.photo}
-              alt="Julia of UGC Tech Girl, Europe-based UGC creator for tech and beauty brands"
-              className="h-full w-full object-cover opacity-90"
+            <video
+              className="h-full w-full object-cover"
+              src={profile.heroVideo}
+              poster={profile.heroPoster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="First UGC clip by UGC Tech Girl"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-5 text-[#f4efe6]">
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-5 text-[#f4efe6]">
               <p className="text-xs uppercase tracking-widest text-[#c9b48a]">
                 Now playing
               </p>
               <p className="mt-1 text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>
-                {works[0]?.title}
+                {profile.heroClipTitle}
               </p>
             </div>
           </div>
