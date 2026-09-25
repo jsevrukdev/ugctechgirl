@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   brandFaqs,
   community,
@@ -18,6 +19,81 @@ const reelColors = [
   "#182018",
   "#1e2420",
 ];
+
+function HeroClip() {
+  const [muted, setMuted] = useState(true);
+
+  return (
+    <div className="relative mx-auto w-[260px]">
+      <button
+        type="button"
+        onClick={() => setMuted((current) => !current)}
+        className="relative block w-full overflow-hidden rounded-[2.2rem] border border-line bg-panel text-left shadow-[0_40px_80px_rgba(0,0,0,0.18)]"
+        aria-pressed={!muted}
+        aria-label={
+          muted
+            ? `Play sound for ${profile.heroClipTitle}`
+            : `Mute ${profile.heroClipTitle}`
+        }
+      >
+        <video
+          className="aspect-[9/16] h-full w-full object-cover"
+          src={profile.heroVideo}
+          poster={profile.heroPoster}
+          autoPlay
+          muted={muted}
+          loop
+          playsInline
+          preload="metadata"
+        />
+        <span className="pointer-events-none absolute left-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-black/55 text-[#f4efe6]">
+          {muted ? (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path
+                d="M11 5 6 9H3v6h3l5 4V5Z"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
+              />
+              <path
+                d="m16 9 5 6M21 9l-5 6"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path
+                d="M11 5 6 9H3v6h3l5 4V5Z"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M16 9.5a5 5 0 0 1 0 5M18.5 7a8 8 0 0 1 0 10"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+              />
+            </svg>
+          )}
+        </span>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-5 text-[#f4efe6]">
+          <p className="text-xs uppercase tracking-widest text-[#c9b48a]">
+            Now playing
+          </p>
+          <p
+            className="mt-1 text-lg leading-tight"
+            style={{ fontFamily: '"Instrument Serif", serif' }}
+          >
+            {profile.heroClipTitle}
+          </p>
+        </div>
+      </button>
+    </div>
+  );
+}
 
 export function VariantA() {
   return (
@@ -70,29 +146,7 @@ export function VariantA() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-[260px]">
-          <div className="aspect-[9/16] overflow-hidden rounded-[2.2rem] border border-line bg-panel shadow-[0_40px_80px_rgba(0,0,0,0.18)]">
-            <video
-              className="h-full w-full object-cover"
-              src={profile.heroVideo}
-              poster={profile.heroPoster}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label={profile.heroClipTitle}
-            />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-5 text-[#f4efe6]">
-              <p className="text-xs uppercase tracking-widest text-[#c9b48a]">
-                Now playing
-              </p>
-              <p className="mt-1 text-lg leading-tight" style={{ fontFamily: '"Instrument Serif", serif' }}>
-                {profile.heroClipTitle}
-              </p>
-            </div>
-          </div>
-        </div>
+        <HeroClip />
       </section>
 
       <section className="border-t border-line py-8">
