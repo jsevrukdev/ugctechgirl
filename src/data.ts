@@ -13,8 +13,6 @@ export const profile = {
   heroVideo: "./hero.mp4",
   heroPoster: "./hero-poster.jpg",
   heroClipTitle: "Day 0 of my UGC journey",
-  heroClipCaption:
-    "A month ago I got laid off from my big tech job. Instead of going back, I'm giving myself until December to replace that income with UGC — starting from Serbia, in two languages, with zero clients yet.",
   socials: [
     { label: "YouTube", href: "https://www.youtube.com/@ugctechgirl" },
     { label: "Instagram", href: "https://www.instagram.com/ugc.techgirl/" },
