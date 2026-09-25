@@ -81,17 +81,20 @@ export function VariantA() {
               loop
               playsInline
               preload="metadata"
-              aria-label="First UGC clip by UGC Tech Girl"
+              aria-label={`${profile.heroClipTitle}. ${profile.heroClipCaption}`}
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-5 text-[#f4efe6]">
               <p className="text-xs uppercase tracking-widest text-[#c9b48a]">
                 Now playing
               </p>
-              <p className="mt-1 text-lg" style={{ fontFamily: '"Instrument Serif", serif' }}>
+              <p className="mt-1 text-lg leading-tight" style={{ fontFamily: '"Instrument Serif", serif' }}>
                 {profile.heroClipTitle}
               </p>
             </div>
           </div>
+          <p className="mt-4 text-xs leading-relaxed text-muted">
+            {profile.heroClipCaption}
+          </p>
         </div>
       </section>
 
